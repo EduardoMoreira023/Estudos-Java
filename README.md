@@ -1,1 +1,1 @@
-Praticando algumas atividades em Java!
+Estudando e Praticando algumas atividades em Java!
