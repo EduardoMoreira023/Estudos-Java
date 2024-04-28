@@ -1,6 +1,6 @@
 package lambdas;
 
-public class Produto {
+public class Produto extends Object {
 	
 	final String nome;
 	final double preco;
@@ -14,7 +14,8 @@ public class Produto {
 	}
 	
 	public String toString() {
-		return nome + "tem preço de R$" + preco;
+		double precoFinal = preco * (1 - desconto);
+		return nome + "tem preço de R$" + precoFinal;
 	}
 
 }

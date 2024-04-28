@@ -8,6 +8,8 @@ public class For1 {
 			System.out.printf("i = %d\n", contador);
 		}
 		
+		//--------------------------------------------------------
+		
 		// Laço infinito!!!
 		
 //		for(;;) {
