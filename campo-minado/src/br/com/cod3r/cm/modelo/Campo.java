@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.cod3r.cm.execao.ExplosaoException;
-
+import lombok.Getter;
+import lombok.Setter;
+@Getter
+@Setter
 public class Campo {
 	
 	private final int linha;
@@ -76,33 +79,33 @@ public class Campo {
 		minado = true;
 	}
 	
-	public boolean isMinado() {
-		return minado;
-	}
+//	public boolean isMinado() {
+//		return minado;
+//	}
+//	
+//	public boolean isMarcado() {
+//		return marcado;
+//	}
 	
-	public boolean isMarcado() {
-		return marcado;
-	}
-	
-	void setAberto(boolean aberto) {
-		this.aberto = aberto;
-	}
-
-	public boolean isAberto() {
-		return aberto;
-	}
-	
+//	void setAberto(boolean aberto) {
+//		this.aberto = aberto;
+//	}
+//
+//	public boolean isAberto() {
+//		return aberto;
+//	}
+//	
 	public boolean isFechado() {
-		return !isAberto();
+	return !isAberto();
 	}
 
-	public int getLinha() {
-		return linha;
-	}
-
-	public int getColuna() {
-		return coluna;
-	}
+//	public int getLinha() {
+//		return linha;
+//	}
+//
+//	public int getColuna() {
+//		return coluna;
+//	}
 	
 	boolean objetivoAlcancado() {
 		boolean desvendado = !minado && aberto;
