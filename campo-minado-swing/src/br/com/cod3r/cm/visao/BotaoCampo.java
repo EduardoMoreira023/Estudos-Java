@@ -1,6 +1,8 @@
 package br.com.cod3r.cm.visao;
 
 import java.awt.Color;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -10,7 +12,7 @@ import br.com.cod3r.cm.modelo.CampoEvento;
 import br.com.cod3r.cm.modelo.CampoObservador;
 
 @SuppressWarnings("serial")
-public class BotaoCampo extends JButton implements CampoObservador{
+public class BotaoCampo extends JButton implements CampoObservador, MouseListener{
 	
 	private final Color BG_PADRAO = new Color(184, 184, 184);
 	private final Color BG_MARCADO = new Color(8, 179, 247);
@@ -24,6 +26,7 @@ public class BotaoCampo extends JButton implements CampoObservador{
 		setBackground(BG_PADRAO);
 		setBorder(BorderFactory.createBevelBorder(0));
 		
+		addMouseListener(this);
 		campo.registrarObservador(this);
 			
 	}
@@ -63,6 +66,42 @@ public class BotaoCampo extends JButton implements CampoObservador{
 
 	private void aplicarEstiloAbrir() {
 		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	// Interface dos eventos do Mouse
+	
+	
+	public void mousePressed(MouseEvent e) {
+		if(e.getButton() == 1) {
+			System.out.println("Botão esquerdo!");
+		} else {
+			System.out.println("outro botão");
+		}
+		
+	}
+	
+	public void mouseClicked(MouseEvent e) {
+		
+		
+	}
+	
+	
+	public void mouseEntered(MouseEvent e) {
+		
+		
+	}
+	
+	
+	public void mouseReleased(MouseEvent e) {
+		
+		
+	}
+
+	
+	public void mouseExited(MouseEvent e) {
+	
 		
 	}
 	
