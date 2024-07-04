@@ -3,13 +3,10 @@ package br.com.cod3r.cm.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.cod3r.cm.execao.ExplosaoException;
-import lombok.Getter;
-import lombok.Setter;
-@Getter
-@Setter
+import br.com.cod3r.cm.excecao.ExplosaoException;
+
 public class Campo {
-	
+
 	private final int linha;
 	private final int coluna;
 	
@@ -19,7 +16,7 @@ public class Campo {
 	
 	private List<Campo> vizinhos = new ArrayList<>();
 	
-	Campo(int linha, int coluna){
+	Campo(int linha, int coluna) {
 		this.linha = linha;
 		this.coluna = coluna;
 	}
@@ -31,12 +28,12 @@ public class Campo {
 		
 		int deltaLinha = Math.abs(linha - vizinho.linha);
 		int deltaColuna = Math.abs(coluna - vizinho.coluna);
-		int deltaGeral = deltaColuna + deltaLinha;
+		int detalGeral = deltaColuna + deltaLinha;
 		
-		if(deltaGeral == 1 && !diagonal) {
+		if(detalGeral == 1 && !diagonal) {
 			vizinhos.add(vizinho);
 			return true;
-		} else if(deltaGeral == 2 && diagonal) {
+		} else if(detalGeral == 2 && diagonal) {
 			vizinhos.add(vizinho);
 			return true;
 		} else {
@@ -59,19 +56,17 @@ public class Campo {
 				throw new ExplosaoException();
 			}
 			
-			if(vizinhacaSegura()) {
+			if(vizinhancaSegura()) {
 				vizinhos.forEach(v -> v.abrir());
 			}
 			
 			return true;
 		} else {
-			return false;
-			
+			return false;			
 		}
-		
 	}
 	
-	boolean vizinhacaSegura() {
+	boolean vizinhancaSegura() {
 		return vizinhos.stream().noneMatch(v -> v.minado);
 	}
 	
@@ -80,7 +75,7 @@ public class Campo {
 	}
 	
 	public boolean isMinado() {
-	return minado;
+		return minado;
 	}
 	
 	public boolean isMarcado() {
@@ -94,9 +89,9 @@ public class Campo {
 	public boolean isAberto() {
 		return aberto;
 	}
-	
+
 	public boolean isFechado() {
-	return !isAberto();
+		return !isAberto();
 	}
 
 	public int getLinha() {
@@ -113,8 +108,8 @@ public class Campo {
 		return desvendado || protegido;
 	}
 	
-	long minasNaVizinhaca() {
-		return vizinhos.stream().filter(v -> v.minado).count();	
+	long minasNaVizinhanca() {
+		return vizinhos.stream().filter(v -> v.minado).count();
 	}
 	
 	void reiniciar() {
@@ -128,13 +123,12 @@ public class Campo {
 			return "x";
 		} else if(aberto && minado) {
 			return "*";
-		} else if(aberto && minasNaVizinhaca() > 0) {
-			return Long.toString(minasNaVizinhaca());
+		} else if(aberto && minasNaVizinhanca() > 0) {
+			return Long.toString(minasNaVizinhanca());
 		} else if(aberto) {
 			return " ";
 		} else {
 			return "?";
 		}
 	}
-
 }

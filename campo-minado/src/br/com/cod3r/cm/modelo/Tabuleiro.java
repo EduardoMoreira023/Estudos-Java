@@ -4,41 +4,43 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
-import br.com.cod3r.cm.execao.ExplosaoException;
+import br.com.cod3r.cm.excecao.ExplosaoException;
 
 public class Tabuleiro {
-	
+
 	private int linhas;
 	private int colunas;
 	private int minas;
 	
-	private final List<Campo> campos = new ArrayList<Campo>();
-	
+	private final List<Campo> campos = new ArrayList<>();
+
 	public Tabuleiro(int linhas, int colunas, int minas) {
 		this.linhas = linhas;
 		this.colunas = colunas;
 		this.minas = minas;
 		
 		gerarCampos();
-		associarOsVizinhos();
+		associarVizinhos();
 		sortearMinas();
 	}
-	
+
 	public void abrir(int linha, int coluna) {
 		try {
 			campos.parallelStream()
-			.filter(c -> c.getLinha() == linha && c.getColuna() == coluna)
-			.findFirst().ifPresent(c -> c.abrir());;
+				.filter(c -> c.getLinha() == linha && c.getColuna() == coluna)
+				.findFirst()
+				.ifPresent(c -> c.abrir());
 		} catch (ExplosaoException e) {
 			campos.forEach(c -> c.setAberto(true));
 			throw e;
 		}
 	}
-	
+
 	public void alternarMarcacao(int linha, int coluna) {
 		campos.parallelStream()
-		.filter(c -> c.getLinha() == linha && c.getColuna() == coluna)
-		.findFirst().ifPresent(c -> c.alternarMarcacao());;
+			.filter(c -> c.getLinha() == linha && c.getColuna() == coluna)
+			.findFirst()
+			.ifPresent(c -> c.alternarMarcacao());
 	}
 
 	private void gerarCampos() {
@@ -48,13 +50,15 @@ public class Tabuleiro {
 			}
 		}
 	}
-	private void associarOsVizinhos() {
-		for (Campo c1: campos) {
-			for (Campo c2: campos) {
+	
+	private void associarVizinhos() {
+		for(Campo c1: campos) {
+			for(Campo c2: campos) {
 				c1.adicionarVizinho(c2);
 			}
 		}
 	}
+	
 	private void sortearMinas() {
 		long minasArmadas = 0;
 		Predicate<Campo> minado = c -> c.isMinado();
@@ -88,11 +92,11 @@ public class Tabuleiro {
 		sb.append("\n");
 		
 		int i = 0;
-		for (int linha = 0; linha < linhas; linha++) {
-			sb.append(linha);
+		for (int l = 0; l < linhas; l++) {
+			sb.append(l);
 			sb.append(" ");
-			for (int coluna = 0; coluna < colunas; coluna++) {
-				sb.append(" ");
+			for (int c = 0; c < colunas; c++) {
+				sb.append(" ");				
 				sb.append(campos.get(i));
 				sb.append(" ");
 				i++;
@@ -102,7 +106,4 @@ public class Tabuleiro {
 		
 		return sb.toString();
 	}
-	
-	
-
 }
