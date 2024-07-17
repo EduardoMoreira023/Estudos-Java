@@ -11,7 +11,7 @@ import br.com.cod3r.calc.modelo.Memoria;
 import br.com.cod3r.calc.modelo.MemoriaObservador;
 
 @SuppressWarnings("serial")
-public class Display extends JPanel implements MemoriaObservador{
+public class Display extends JPanel implements MemoriaObservador {
 	
 	private final JLabel label;
 	
@@ -24,13 +24,12 @@ public class Display extends JPanel implements MemoriaObservador{
 		label.setFont(new Font("courier", Font.PLAIN, 30));
 		
 		setLayout(new FlowLayout(FlowLayout.RIGHT, 10, 25));
+		
 		add(label);
 	}
 	
 	@Override
 	public void valorAlterado(String novoValor) {
 		label.setText(novoValor);
-		
 	}
-
 }

@@ -7,8 +7,8 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
 @SuppressWarnings("serial")
-public class Botao extends JButton{
-	
+public class Botao extends JButton {
+
 	public Botao(String texto, Color cor) {
 		setText(texto);
 		setFont(new Font("courier", Font.PLAIN, 25));
@@ -18,4 +18,3 @@ public class Botao extends JButton{
 		setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	}
 }
-

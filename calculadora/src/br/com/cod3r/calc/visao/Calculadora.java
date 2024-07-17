@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 
 @SuppressWarnings("serial")
 public class Calculadora extends JFrame {
-	
+
 	public Calculadora() {
 		
 		organizarLayout();
@@ -17,7 +17,9 @@ public class Calculadora extends JFrame {
 		setLocationRelativeTo(null);
 		setVisible(true);
 	}
-
+	
+	
+	
 	private void organizarLayout() {
 		setLayout(new BorderLayout());
 		
@@ -25,14 +27,14 @@ public class Calculadora extends JFrame {
 		display.setPreferredSize(new Dimension(233, 60));
 		add(display, BorderLayout.NORTH);
 		
-		
 		Teclado teclado = new Teclado();
 		add(teclado, BorderLayout.CENTER);
 		
 	}
 
+
+
 	public static void main(String[] args) {
 		new Calculadora();
 	}
-	
 }
