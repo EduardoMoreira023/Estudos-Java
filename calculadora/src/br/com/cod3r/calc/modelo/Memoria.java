@@ -13,7 +13,10 @@ public class Memoria {
 	
 	private final List<MemoriaObservador> observadores = new ArrayList<>();
 	
+	private TipoComando ultimaOperacao = null;
+	private boolean substituir = false;
 	private String textoAtual = "";
+	private String textoBuffer = "";
 	
 	private Memoria() {
 		
@@ -35,10 +38,15 @@ public class Memoria {
 		
 		TipoComando tipoComando = detectarTipoComando(texto);
 		
-		if("AC".equals(texto)) {
+		if(tipoComando == null) {
+			return;
+		} else if(tipoComando == TipoComando.ZERAR) {
 			textoAtual = "";
-		}else {
-			textoAtual += texto;			
+			textoBuffer = "";
+			substituir = false;
+			ultimaOperacao = null;
+		}  else if(tipoComando == TipoComando.NUMERO || tipoComando== TipoComando.VIRGULA) {
+			
 		}
 		
 		observadores.forEach(o -> o.valorAlterado(getTextoAtual() ));
@@ -50,6 +58,27 @@ public class Memoria {
 			return null;
 		}
 		
+		try {
+			Integer.parseInt(texto);
+			return TipoComando.NUMERO;
+		} catch (NumberFormatException e) {
+			// Quando não for númemo...
+			if("AC".equals(texto)) {
+				return TipoComando.ZERAR;
+			} else if("/".equals(texto)) {
+				return TipoComando.DIVISAO;
+			} else if("*".equals(texto)) {
+				return TipoComando.MULTIPLICACAO;
+			} else if("+".equals(texto)) {
+				return TipoComando.SOMA;
+			} else if("-".equals(texto)) {
+				return TipoComando.SUBTRACAO;
+			} else if("=".equals(texto)) {
+				return TipoComando.IGUAL;
+			} else if(",".equals(texto)) {
+				return TipoComando.VIRGULA;
+			}
+		}
 		return null;
 	}
 
