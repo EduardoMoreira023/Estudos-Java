@@ -1,10 +1,8 @@
-select * from estados where id = 91
+INSERT INTO cidades (nome, area, estado_id)
+VALUES ('Campinas', 795, 29)
 
 INSERT INTO cidades (nome, area, estado_id)
-VALUES ('Campinas', 795, 97)
-
-INSERT INTO cidades (nome, area, estado_id)
-VALUES ('Niterói', 133.9, 91)
+VALUES ('Niterói', 133.9, 23)
 
 INSERT INTO cidades (nome, area, estado_id)
 VALUES ('Caruaru', 920.6, (select id from estados where sigla = 'PE'))
