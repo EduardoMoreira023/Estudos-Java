@@ -8,3 +8,7 @@ where id >= 1000
 
 select * from `estados`
 
+delete from prefeitos
+
+delete from empresas_cidades;
+

@@ -1,1 +1,1 @@
-Estudando e Praticando algumas atividades em Java!
+Estudando e Praticando Fundamentos Java, Orientação a Objeto, Programação Funcional, MySQL, MongoDB, Spring Boot, JavaFX, JPA, Hibernate e mais!
