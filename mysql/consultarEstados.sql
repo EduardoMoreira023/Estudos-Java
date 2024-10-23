@@ -1,5 +1,4 @@
-select * from estados
-
+   
 select nome as 'Nome do Estado', Sigla from `estados`
 where regiao = 'Sul'
 
