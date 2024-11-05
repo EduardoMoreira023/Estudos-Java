@@ -1,6 +1,7 @@
 /arrays/
 /classe/
 /colecoes/
+/conexao.properties
 /controle/
 /excecao/
 /fundamentos/
@@ -11,4 +12,3 @@
 /padroes/
 /streams/
 /swing/
-/conexao.properties
