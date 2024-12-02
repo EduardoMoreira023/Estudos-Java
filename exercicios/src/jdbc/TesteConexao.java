@@ -15,6 +15,8 @@ public class TesteConexao {
 		
 		Connection conexao = DriverManager.getConnection(url, usuario, senha);
 		
+//		Connection conexao = FabricaConexao.getConexao();
+		
 		System.out.println("Conexão efetuada com sucesso!");
 		conexao.close();
 	}
