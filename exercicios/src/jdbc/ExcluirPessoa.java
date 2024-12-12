@@ -21,7 +21,7 @@ public class ExcluirPessoa {
 		
 		int contador = stmt.executeUpdate();
 		
-		if(stmt.executeUpdate() > 0) {
+		if(contador > 0) {
 			System.out.println("Pessoa excluida com sucesso!");
 		} else {
 			System.out.println("Nada feito!");
