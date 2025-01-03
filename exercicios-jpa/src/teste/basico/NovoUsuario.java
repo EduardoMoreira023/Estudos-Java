@@ -16,14 +16,15 @@ public class NovoUsuario {
 		EntityManager em = emf.createEntityManager(); //faz alteração, exclusão, consulta e tbm representa uma conexão.
 		
 		
-		Usuario u1 = new Usuario("zenilda", "zenilda@gmail.com"); 
+		Usuario novoUsuario = new Usuario("zenilda", "zenilda@gmail.com"); 
 		
 		//sempre ter q ter uma transação em caso de inserção, mas em consulta não necessita
 		
 		em.getTransaction().begin(); // responsavel por abrir uma transação 
-		em.persist(u1); //persiste as informações
+		em.persist(novoUsuario); //persiste as informações
 		em.getTransaction().commit(); // envia a para o banco transação 
 		
+		System.out.println("O Id gerado foi: " + novoUsuario.getId()); 
 		
 		em.close();
 		emf.close();

@@ -13,7 +13,7 @@ public class ObterUsuario {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("exercicios-jpa");
 		EntityManager em = emf.createEntityManager();
 		
-		Usuario u1 = em.find(Usuario.class, 1l); //no find primeiro passa a classe(tabela) que foi persistida e a que você quer buscar e depois o valor que quer usar para buscar.
+		Usuario u1 = em.find(Usuario.class, 5L); //no find primeiro passa a classe(tabela) que foi persistida e a que você quer buscar e depois o valor que quer usar para buscar.
 		System.out.println(u1.getNome());
 		
 		em.close();
