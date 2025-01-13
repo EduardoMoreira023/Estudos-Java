@@ -1,4 +1,4 @@
-package teste.basico;
+ package teste.basico;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -16,8 +16,8 @@ public class AlterarUsuario1 {
 		em.getTransaction().begin();//abre a transição
 		
 		Usuario usuario = em.find(Usuario.class, 1l);
-		usuario.setNome("Diego");
-		usuario.setEmail("diego@hotmail.com");
+		usuario.setNome("Dudu");
+		usuario.setEmail("dudu@hotmail.com");
 		
 		em.merge(usuario);//faz o update, tem que passar o objeto no qual é responsavel pela entidade
 		

@@ -1,5 +1,5 @@
 package infra;
-
+ 
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -7,7 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
-public class DAO<E> {
+public class DAO<E>{
 
 	private static EntityManagerFactory emf; // não pode inicilizar no construtor pois ele está como atributo static
 	private EntityManager em; // pode inicializar no bloco construtor
