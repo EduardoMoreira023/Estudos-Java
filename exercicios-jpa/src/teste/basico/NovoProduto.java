@@ -7,7 +7,7 @@ public class NovoProduto {
 
 	public static void main(String[] args) {
 
-		Produto produto = new Produto("monitor", 789.98);
+		Produto produto = new Produto("mesa", 1009.98);
 		
 		DAO<Produto> dao = new DAO<>(Produto.class);
 		dao.abrirT().incluir(produto).fecharT();

@@ -16,7 +16,7 @@ public class NovoUsuario {
 		EntityManager em = emf.createEntityManager(); //faz alteração, exclusão, consulta e tbm representa uma conexão.
 		
 		
-		Usuario novoUsuario = new Usuario("zenilda", "zenilda@gmail.com"); 
+		Usuario novoUsuario = new Usuario("diego", "diego@gmail.com"); 
 		
 		//sempre ter q ter uma transação em caso de inserção, mas em consulta não necessita
 		

@@ -9,7 +9,7 @@ public class CriarBanco {
 	
 	public static void main(String[] args) throws SQLException {
 		
-		final String url = "jdbc:mysql://localhost/curso_java?verifyServerCertificate=false&useSSL=true";
+		final String url = "jdbc:mysql://localhost:3306/?user=root?verifyServerCertificate=false&useSSL=true";
 		final String usuario = "root";
 		final String senha = "40433888";
 		
