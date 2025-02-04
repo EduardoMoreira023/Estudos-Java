@@ -13,7 +13,7 @@ public class ObterProdutos {
 		List<Produto> produtos = dao.obterTodos();
 
 		for (Produto produto : produtos) {
-			System.out.println("ID: " + produto.getId() + "nome: " + produto.getNome());
+			System.out.println("ID: " + produto.getId() + ", Nome: " + produto.getNome());
 		}
 
 		double precoTotal = produtos.stream().map(p -> p.getPreco()).reduce(0.0, (t, p) -> t + p).doubleValue();
