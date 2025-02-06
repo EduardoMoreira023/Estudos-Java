@@ -1,22 +1,28 @@
 package teste.umpraum;
 
 import infra.DAO;
+import modelo.umpraum.Assento;
 import modelo.umpraum.Cliente;
 
 public class ObterClienteAssento {
 
 	public static void main(String[] args) {
 		
-		DAO<Cliente> dao = new DAO<>(Cliente.class);
+		DAO<Cliente> daoCliente = new DAO<>(Cliente.class);
 		
 		
-		Cliente cliente = dao.obterPorID(1L);
+		Cliente cliente = daoCliente.obterPorID(1L);
 		System.out.println(cliente.getAssento().getNome());
 		System.out.printf(cliente.getAssento().getCliente().getNome());
 		
+		daoCliente.fechar();
 		
+		DAO<Assento> daoAssento = new DAO<>(Assento.class);
 		
-		dao.fechar();
+		Assento assento = daoAssento.obterPorID(1L);
+		System.out.println(assento.getCliente().getNome());
+		
+		daoAssento.fechar();
 		
 	}
 
